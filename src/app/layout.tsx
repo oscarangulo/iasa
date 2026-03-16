@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -46,7 +48,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${jakarta.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
