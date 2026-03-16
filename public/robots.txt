@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://grupoiasa.cl
+
+# Sitemaps
+Sitemap: https://grupoiasa.cl/sitemap.xml
