@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grupo IASA - Sitio Web Corporativo
 
-## Getting Started
+Sitio web corporativo de **Grupo IASA**, consorcio de empresas de consultoría ambiental e ingeniería con sede en Santiago de Chile. Especializado en auditorías ambientales, eficiencia energética, huella de carbono, ingeniería sanitaria, hidráulica y marítima.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router, SSG)
+- **Styling:** Tailwind CSS v4
+- **Language:** TypeScript
+- **Fonts:** Plus Jakarta Sans + Inter (via next/font)
+- **SEO:** next-sitemap (sitemap.xml + robots.txt automáticos)
+
+## Estructura del Sitio
+
+| Ruta | Página |
+|------|--------|
+| `/` | Homepage |
+| `/nosotros` | Historia, equipo, política de calidad |
+| `/servicios/proiecta` | PROIECTA - Ingeniería Sanitaria, Hidráulica y Ambiental |
+| `/servicios/proceanic` | PROCEANIC - Ingeniería Marítima y Ciencias del Mar |
+| `/servicios/proambiente` | PROAMBIENTE - Auditorías Ambientales y Eficiencia Energética |
+| `/proyectos` | Galería de proyectos con filtros |
+| `/publicaciones` | Documentos técnicos y publicaciones |
+| `/sgc` | Sistema de Gestión de Calidad (ISO 9001:2015) |
+| `/contacto` | Formulario de contacto e información |
+
+## Empresas del Consorcio
+
+- **PROIECTA S.A.** — Ingeniería Sanitaria, Hidráulica y Ambiental
+- **PROAMBIENTE S.A.** — Auditorías Ambientales, Eficiencia Energética y Huella de Carbono
+- **PROCEANIC S.A.** — Ingeniería Marítima, Ciencias del Mar y Programas de Vigilancia Ambiental
+
+## Desarrollo
 
 ```bash
+# Instalar dependencias
+npm install
+
+# Servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build de producción
+npm run build
+
+# Servidor de producción
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+El sitio genera páginas estáticas (SSG) para máximo rendimiento. Compatible con:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Vercel** (recomendado)
+- **Netlify**
+- Cualquier hosting que soporte Node.js o archivos estáticos
 
-## Learn More
+## Contacto
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Web:** [grupoiasa.cl](https://grupoiasa.cl)
+- **Email:** iasa@grupoiasa.cl
+- **Dirección:** Av. Providencia N°2653, Edificio Forum, Of. 1308, Providencia, Santiago de Chile
+- **Teléfono:** +56 2 2585 9840 / 2585 9841 / 2585 9842
