@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PageHero from "@/components/ui/page-hero";
 import TeamCard from "@/components/ui/team-card";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -88,66 +89,90 @@ export default function NosotrosPage() {
       />
 
       {/* Historia */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-6">
-              Nuestra Historia
-            </h2>
-            <p className="text-text-secondary leading-relaxed">
-              Con la solidez de la experiencia europea y del conocimiento
-              adquirido en Latino América, la empresa Ingeniería Alemana S.A.
-              (conocida en el medio como &quot;IASA&quot;) se hizo un nombre en
-              el ámbito de la ingeniería ambiental. Con el transcurso de los
-              años se asociaron distintas sociedades, que a partir de una
-              filosofía común de trabajo contribuyeron diferentes áreas y
-              especialidades, todas ellas relacionadas con el estudio, el
-              desarrollo, la ingeniería y construcción de planes y proyectos
-              vinculados al medio ambiente.
-            </p>
+            <ScrollReveal>
+              <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+                Nuestra historia
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-8 leading-snug">
+                Experiencia europea, conocimiento latinoamericano
+              </h2>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <p className="text-text-secondary leading-relaxed text-lg">
+                Con la solidez de la experiencia europea y del conocimiento
+                adquirido en Latino América, la empresa Ingeniería Alemana S.A.
+                (conocida en el medio como &quot;IASA&quot;) se hizo un nombre en
+                el ámbito de la ingeniería ambiental. Con el transcurso de los
+                años se asociaron distintas sociedades, que a partir de una
+                filosofía común de trabajo contribuyeron diferentes áreas y
+                especialidades, todas ellas relacionadas con el estudio, el
+                desarrollo, la ingeniería y construcción de planes y proyectos
+                vinculados al medio ambiente.
+              </p>
+            </ScrollReveal>
           </div>
-          <div>
+          <ScrollReveal delay={300}>
             <Image
               src="/images/hero/img-0794-min.jpg"
               alt="Equipo Grupo IASA en terreno"
               width={640}
               height={480}
-              className="rounded-lg shadow-lg w-full h-auto"
+              className="w-full h-auto"
             />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Política de Calidad */}
-      <section className="bg-muted py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <span className="inline-block bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium mb-4">
-            ISO 9001:2015
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-6">
-            Política de Calidad
-          </h2>
-          <p className="text-text-secondary leading-relaxed max-w-3xl">
-            Nos comprometemos con la mejora continua de la calidad de nuestras
-            asesorías, y nos destacamos por la atención personalizada y el
-            respaldo técnico internacional. Pretendemos ser la empresa más
-            innovadora en soluciones integrales, cumpliendo los requisitos
-            legales y reglamentarios vigentes y cualquier otro requisito que la
-            organización suscriba, además de satisfacer las necesidades de
-            nuestros clientes.
-          </p>
+      <section className="bg-sand py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <span className="inline-block text-xs uppercase tracking-[0.3em] text-emerald mb-4">
+              ISO 9001:2015
+            </span>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-8">
+              Política de Calidad
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-text-secondary leading-relaxed max-w-3xl text-lg">
+              Nos comprometemos con la mejora continua de la calidad de nuestras
+              asesorías, y nos destacamos por la atención personalizada y el
+              respaldo técnico internacional. Pretendemos ser la empresa más
+              innovadora en soluciones integrales, cumpliendo los requisitos
+              legales y reglamentarios vigentes y cualquier otro requisito que la
+              organización suscriba, además de satisfacer las necesidades de
+              nuestros clientes.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Equipo */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-10 text-center">
-            Nuestro Equipo
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member) => (
-              <TeamCard key={member.name} {...member} />
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              El equipo
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-14">
+              Nuestro Equipo
+            </h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10">
+            {teamMembers.map((member, i) => (
+              <ScrollReveal key={member.name} delay={i * 50}>
+                <TeamCard {...member} />
+              </ScrollReveal>
             ))}
           </div>
         </div>

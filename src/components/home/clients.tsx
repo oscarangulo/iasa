@@ -13,21 +13,27 @@ const clients = [
 
 export default function Clients() {
   return (
-    <section className="bg-white py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary font-heading mb-12 text-center">
-          Clientes
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center justify-items-center">
-          {clients.map((client) => (
-            <div key={client.alt} className="flex items-center justify-center">
+    <section className="py-16 bg-cream overflow-hidden">
+      <p className="text-xs uppercase tracking-[0.3em] text-text-light text-center mb-10">
+        Confían en nosotros
+      </p>
+
+      {/* Marquee wrapper */}
+      <div className="relative">
+        <div className="flex animate-marquee w-max">
+          {/* Duplicate the list for seamless loop */}
+          {[...clients, ...clients].map((client, i) => (
+            <div
+              key={`${client.alt}-${i}`}
+              className="flex items-center justify-center mx-10 md:mx-14"
+            >
               <Image
                 src={client.src}
                 alt={client.alt}
                 width={120}
                 height={60}
-                className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 object-contain h-auto"
-                style={{ maxWidth: 140, maxHeight: 60 }}
+                className="grayscale opacity-40 hover:opacity-80 transition-opacity duration-500 object-contain h-auto"
+                style={{ maxWidth: 120, maxHeight: 50 }}
               />
             </div>
           ))}

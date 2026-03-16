@@ -1,30 +1,86 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0F2B46;
-  --color-primary-light: #1A3D5C;
-  --color-primary-dark: #0A1F33;
-  --color-secondary: #2D6A4F;
-  --color-secondary-light: #40916C;
-  --color-secondary-dark: #1B4332;
-  --color-accent: #40916C;
-  --color-muted: #F1F5F9;
-  --color-light: #F8FAFB;
-  --color-text-primary: #1E293B;
-  --color-text-secondary: #64748B;
-
-  --font-heading: var(--font-jakarta);
-  --font-body: var(--font-inter);
+  --color-dark: #0C0C0C;
+  --color-charcoal: #1A1A1A;
+  --color-graphite: #2A2A2A;
+  --color-stone: #8A8A7A;
+  --color-sand: #F5F0EB;
+  --color-cream: #FAF8F5;
+  --color-emerald: #00875A;
+  --color-emerald-light: #00A86B;
+  --color-emerald-dark: #006B47;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B6B6B;
+  --color-text-light: #9A9A9A;
+  --font-heading: var(--font-dm-serif);
+  --font-body: var(--font-dm-sans);
 }
 
 body {
-  background: #ffffff;
+  background: #FAF8F5;
   color: var(--color-text-primary);
   font-family: var(--font-body), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), system-ui, sans-serif;
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+/* Scroll-triggered fade-up animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+
+/* Infinite marquee for clients */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Gentle bounce for scroll indicator */
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-gentle-bounce {
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+/* Fine horizontal rule */
+.divider {
+  height: 1px;
+  background: #E0DCD7;
+  border: none;
+}
+
+/* Selection color */
+::selection {
+  background: #00875A;
+  color: white;
 }

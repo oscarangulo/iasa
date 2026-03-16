@@ -9,27 +9,27 @@ interface TeamCardProps {
 
 export default function TeamCard({ name, role, department, photo }: TeamCardProps) {
   const departmentStyles: Record<string, string> = {
-    PROIECTA: "bg-primary/10 text-primary",
-    PROAMBIENTE: "bg-secondary/10 text-secondary",
-    PROCEANIC: "bg-primary/10 text-primary",
+    PROIECTA: "text-emerald",
+    PROAMBIENTE: "text-emerald-dark",
+    PROCEANIC: "text-stone",
   };
 
-  const badgeClass = departmentStyles[department] ?? "bg-primary/10 text-primary";
+  const textClass = departmentStyles[department] ?? "text-emerald";
 
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 text-center">
-      <Image
-        src={photo}
-        alt={name}
-        width={112}
-        height={112}
-        className="w-28 h-28 rounded-full mx-auto object-cover mb-4"
-      />
-      <h3 className="text-lg font-semibold text-primary font-heading">{name}</h3>
+    <div className="group">
+      <div className="overflow-hidden mb-4">
+        <Image
+          src={photo}
+          alt={name}
+          width={400}
+          height={400}
+          className="w-full aspect-square object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+        />
+      </div>
+      <h3 className="text-lg font-heading text-charcoal">{name}</h3>
       <p className="text-sm text-text-secondary mt-1">{role}</p>
-      <span
-        className={`inline-block mt-3 px-3 py-1 rounded-full text-xs font-medium ${badgeClass}`}
-      >
+      <span className={`text-xs ${textClass} mt-2 inline-block`}>
         {department}
       </span>
     </div>

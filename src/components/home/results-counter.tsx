@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import ScrollReveal from "@/components/scroll-reveal";
 
 const counters = [
   { target: 20, label: "Planes de manejo integral de residuos sólidos" },
@@ -49,11 +50,12 @@ function Counter({
   const count = useCountUp(target, isVisible);
 
   return (
-    <div>
-      <p className="text-5xl md:text-6xl font-bold text-white font-heading">
+    <div className="py-6">
+      <p className="text-5xl md:text-6xl font-heading text-emerald">
         {count}
+        <span className="text-emerald/60">+</span>
       </p>
-      <p className="text-sm text-gray-300 mt-2">{label}</p>
+      <p className="text-white/50 text-sm mt-2 max-w-xs">{label}</p>
     </div>
   );
 }
@@ -87,20 +89,36 @@ export default function ResultsCounter() {
   }, [handleIntersection]);
 
   return (
-    <section ref={sectionRef} className="bg-primary py-20 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white font-heading mb-12 text-center">
-          Nuestros Resultados
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {counters.map((counter) => (
-            <Counter
-              key={counter.label}
-              target={counter.target}
-              label={counter.label}
-              isVisible={isVisible}
-            />
-          ))}
+    <section ref={sectionRef} className="bg-dark py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-8 md:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left side — heading */}
+          <div>
+            <ScrollReveal>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/30 mb-4">
+                Resultados
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h2 className="text-3xl md:text-4xl font-heading text-white leading-snug">
+                Cifras que respaldan nuestra experiencia
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          {/* Right side — counter rows */}
+          <div>
+            {counters.map((counter, i) => (
+              <div key={counter.label}>
+                {i > 0 && <div className="h-px bg-white/10" />}
+                <Counter
+                  target={counter.target}
+                  label={counter.label}
+                  isVisible={isVisible}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

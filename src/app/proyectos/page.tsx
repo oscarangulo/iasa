@@ -114,15 +114,15 @@ export default function ProyectosPage() {
       <PageHero title="Nuestros Proyectos" />
 
       {/* Filter tabs */}
-      <div className="flex gap-3 justify-center py-8">
+      <div className="flex gap-4 px-8 md:px-16 max-w-7xl mx-auto py-12">
         {filters.map((f) => (
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+            className={`px-5 py-2 text-sm transition-colors border-b-2 ${
               filter === f
-                ? "bg-secondary text-white"
-                : "bg-white text-text-secondary border border-gray-200 hover:border-secondary"
+                ? "border-emerald text-charcoal"
+                : "border-transparent text-text-light hover:text-charcoal"
             }`}
           >
             {f}
@@ -131,33 +131,27 @@ export default function ProyectosPage() {
       </div>
 
       {/* Project cards grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-6 pb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-8 md:px-16 pb-24">
         {filtered.map((project) => (
           <div
             key={project.title}
-            className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-lg transition-shadow"
+            className="group relative overflow-hidden h-[300px]"
           >
             <Image
               src={project.image}
               alt={project.title}
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="p-5">
-              <h3 className="text-lg font-semibold text-primary font-heading">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-base font-heading text-white">
                 {project.title}
               </h3>
-              <p className="text-sm text-text-secondary mt-1">
+              <p className="text-sm text-white/50 mt-1">
                 {project.client}
               </p>
-              <span
-                className={`text-xs px-2 py-1 rounded-full mt-2 inline-block ${
-                  project.company === "PROIECTA"
-                    ? "bg-primary/10 text-primary"
-                    : "bg-secondary/10 text-secondary"
-                }`}
-              >
+              <span className="text-xs text-emerald-light mt-2 inline-block">
                 {project.company}
               </span>
             </div>

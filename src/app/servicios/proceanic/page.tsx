@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/ui/page-hero";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "PROCEANIC - Ingeniería Marítima y Ciencias del Mar",
@@ -44,49 +45,64 @@ export default function ProceanicPage() {
       />
 
       {/* Quiénes Somos */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-6">
-            Quiénes Somos
-          </h2>
-          <p className="text-text-secondary leading-relaxed max-w-4xl">
-            Proceanic S.A. es una sociedad de profesionales constituida con el
-            objeto de prestar servicios con énfasis en los ámbitos
-            marítimo-portuario, hidrográfico, oceanográfico, medioambiental,
-            cartográfico, meteorológico, modelaciones con Mike 21, ingeniería
-            civil marítima (en puerto, ductos submarinos, análisis de diseño de
-            estructuras y obras marítimas en procesos costeros).
-          </p>
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              La empresa
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-8">
+              Quiénes Somos
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-text-secondary leading-relaxed max-w-4xl text-lg">
+              Proceanic S.A. es una sociedad de profesionales constituida con el
+              objeto de prestar servicios con énfasis en los ámbitos
+              marítimo-portuario, hidrográfico, oceanográfico, medioambiental,
+              cartográfico, meteorológico, modelaciones con Mike 21, ingeniería
+              civil marítima (en puerto, ductos submarinos, análisis de diseño de
+              estructuras y obras marítimas en procesos costeros).
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Servicios */}
-      <section className="bg-muted py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-10 text-center">
-            Nuestros Servicios
-          </h2>
+      <section className="bg-sand py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              Áreas de trabajo
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-14">
+              Nuestros Servicios
+            </h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {serviceCategories.map((category) => (
-              <div
-                key={category.title}
-                className="bg-white rounded-xl p-8 shadow-sm"
-              >
-                <h3 className="text-xl font-semibold text-primary font-heading mb-4">
-                  {category.title}
-                </h3>
-                <ul className="space-y-2">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-text-secondary text-sm"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {serviceCategories.map((category, i) => (
+              <ScrollReveal key={category.title} delay={(i + 1) * 100}>
+                <div className="bg-white border border-stone/10 p-8">
+                  <h3 className="text-xl font-heading text-charcoal mb-5">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {category.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-text-secondary text-sm"
+                      >
+                        <span className="mt-2 h-px w-4 shrink-0 bg-emerald" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/ui/page-hero";
+import ScrollReveal from "@/components/scroll-reveal";
 
 export const metadata: Metadata = {
   title: "PROIECTA - Ingeniería Sanitaria, Hidráulica y Ambiental",
@@ -95,102 +96,125 @@ export default function ProiectaPage() {
       />
 
       {/* Quiénes Somos */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-6">
-            Quiénes Somos
-          </h2>
-          <p className="text-text-secondary leading-relaxed max-w-4xl">
-            La empresa PROIECTA S.A. se constituyó con el objetivo de ofrecer
-            una completa prestación de servicios de ingeniería en el amplio
-            ámbito del medio ambiente, de ingeniería sanitaria, hidráulica y del
-            estudio del medio físico terrestre (geología, hidrología,
-            hidrogeología), con especial énfasis en solucionar técnicamente los
-            problemas que deben enfrentar las empresas privadas y públicas así
-            como los órganos del estado e instituciones de toda índole en
-            materias ambientales y de regulaciones en esta área.
-          </p>
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              La empresa
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-8">
+              Quiénes Somos
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={200}>
+            <p className="text-text-secondary leading-relaxed max-w-4xl text-lg">
+              La empresa PROIECTA S.A. se constituyó con el objetivo de ofrecer
+              una completa prestación de servicios de ingeniería en el amplio
+              ámbito del medio ambiente, de ingeniería sanitaria, hidráulica y del
+              estudio del medio físico terrestre (geología, hidrología,
+              hidrogeología), con especial énfasis en solucionar técnicamente los
+              problemas que deben enfrentar las empresas privadas y públicas así
+              como los órganos del estado e instituciones de toda índole en
+              materias ambientales y de regulaciones en esta área.
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Servicios */}
-      <section className="bg-muted py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-10 text-center">
-            Nuestros Servicios
-          </h2>
+      <section className="bg-sand py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              Áreas de trabajo
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-14">
+              Nuestros Servicios
+            </h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {serviceCategories.map((category) => (
-              <div
-                key={category.title}
-                className="bg-white rounded-xl p-8 shadow-sm"
-              >
-                <h3 className="text-xl font-semibold text-primary font-heading mb-4">
-                  {category.title}
-                </h3>
-                <ul className="space-y-2">
-                  {category.items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-text-secondary text-sm"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {serviceCategories.map((category, i) => (
+              <ScrollReveal key={category.title} delay={(i + 1) * 100}>
+                <div className="bg-white border border-stone/10 p-8">
+                  <h3 className="text-xl font-heading text-charcoal mb-5">
+                    {category.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {category.items.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-3 text-text-secondary text-sm"
+                      >
+                        <span className="mt-2 h-px w-4 shrink-0 bg-emerald" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Proyectos */}
-      <section className="py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary font-heading mb-10 text-center">
-            Nuestros Proyectos
-          </h2>
+      <section className="py-24 md:py-32">
+        <div className="max-w-7xl mx-auto px-8 md:px-16">
+          <ScrollReveal>
+            <p className="text-xs uppercase tracking-[0.3em] text-text-light mb-4">
+              Portafolio
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={100}>
+            <h2 className="text-2xl md:text-3xl font-heading text-charcoal mb-14">
+              Nuestros Proyectos
+            </h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={480}
-                  height={320}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-5">
-                  <h3 className="text-base font-semibold text-primary font-heading">
-                    {project.title}
-                  </h3>
-                  {project.client && (
-                    <p className="text-sm text-text-secondary mt-1">
-                      {project.client}
-                    </p>
-                  )}
+            {projects.map((project, i) => (
+              <ScrollReveal key={project.title} delay={i * 80}>
+                <div className="group relative overflow-hidden h-[300px]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-base font-heading text-white">
+                      {project.title}
+                    </h3>
+                    {project.client && (
+                      <p className="text-sm text-white/50 mt-1">
+                        {project.client}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Contact Bar */}
-      <section className="bg-primary py-8 px-6 text-center text-white">
-        <p className="text-lg font-heading font-semibold mb-2">
-          ¿Tiene un proyecto? Contáctenos
-        </p>
-        <Link
-          href="mailto:proiecta@grupoiasa.cl"
-          className="text-white/80 hover:text-white transition-colors underline"
-        >
-          proiecta@grupoiasa.cl
-        </Link>
+      <section className="bg-dark py-16">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 text-center">
+          <p className="text-2xl md:text-3xl font-heading text-white mb-4">
+            ¿Tiene un proyecto? Contáctenos
+          </p>
+          <Link
+            href="mailto:proiecta@grupoiasa.cl"
+            className="text-emerald hover:text-emerald-light transition-colors"
+          >
+            proiecta@grupoiasa.cl
+          </Link>
+        </div>
       </section>
     </main>
   );
