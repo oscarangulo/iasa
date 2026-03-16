@@ -1,15 +1,15 @@
 services:
   iasa:
     image: ghcr.io/oscarangulo/iasa:latest
-    expose:
-      - "3000"
+    ports:
+      - "3000:3000"
     environment:
       - NODE_ENV=production
       - HOSTNAME=0.0.0.0
       - PORT=3000
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"]
       interval: 30s
       timeout: 5s
       retries: 3
