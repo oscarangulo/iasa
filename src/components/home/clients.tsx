@@ -26,7 +26,8 @@ export default function Clients() {
                 alt={client.alt}
                 width={120}
                 height={60}
-                className="grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 object-contain max-w-[120px] h-auto"
+                className="grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100 object-contain h-auto"
+                style={{ maxWidth: 140, maxHeight: 60 }}
               />
             </div>
           ))}
